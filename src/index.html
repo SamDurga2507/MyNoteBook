@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Advanced Video Notes Organizer</title>
+    <!-- Font Awesome CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+    />
+    <!-- Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="styles/main.css" />
+  </head>
+  <body>
+    <!-- Dark Mode Toggle Button -->
+    <button class="dark-mode-toggle" id="darkModeToggle">
+      <i class="fas fa-moon"></i>
+      Toggle Dark Mode
+    </button>
+
+    <div class="notepad-container">
+      <h1>Advanced Video Notes Organizer</h1>
+
+      <!-- Topic Tags -->
+      <div class="topic-list">
+        <button class="topic-tag tag-general">General</button>
+        <button class="topic-tag tag-important">Important</button>
+        <button class="topic-tag tag-question">Question</button>
+        <button class="topic-tag tag-review">Review Later</button>
+      </div>
+
+      <!-- Search Bar -->
+      <div class="search-bar">
+        <input
+          type="text"
+          id="search-input"
+          placeholder="Search notes......."
+        />
+      </div>
+
+      <!-- Note Input Area -->
+      <div class="note-input">
+        <textarea
+          id="note-text"
+          placeholder="Enter your note here..."
+        ></textarea>
+        <div class="note-actions">
+          <button id="add-note">Add Note</button>
+          <button id="clear-note">Clear</button>
+        </div>
+      </div>
+
+      <!-- Notes Container -->
+      <div class="notes-container">
+        <!-- Notes will be dynamically added here -->
+      </div>
+
+      <!-- Statistics -->
+      <div class="stats-container">
+        <div class="stat-item">
+          <div class="stat-value" id="total-notes">0</div>
+          <div class="stat-label">Total notes</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-value" id="important-notes">0</div>
+          <div class="stat-label">Important Notes</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-value" id="questions">0</div>
+          <div class="stat-label">Questions</div>
+        </div>
+      </div>
+
+      <!-- Productivity Tip -->
+      <div class="productivity-tip">
+        Tip: Use different tags to prioritize and categorize your notes for
+        efficient review.
+      </div>
+    </div>
+
+    <!-- Tag Selection Modal -->
+    <div id="tagModal" class="modal">
+      <div class="modal-content">
+        <button id="cancel">
+          <i class="fas fa-times"></i>
+        </button>
+        <h2>Choose a tag for your notes</h2>
+        <div class="tag-options">
+          <button class="topic-tag tag-option tag-general" data-tag="general">
+            General
+          </button>
+          <button
+            class="tag-important tag-option topic-tag"
+            data-tag="important"
+          >
+            Important
+          </button>
+          <button class="tag-question tag-option topic-tag" data-tag="question">
+            Question
+          </button>
+          <button class="tag-review tag-option topic-tag" data-tag="review">
+            Review Later
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Custom Dialog -->
+    <div id="customDialog" class="custom-dialog">
+      <div class="dialog-content">
+        <p id="dialogMessage"></p>
+        <div class="dialog-buttons">
+          <button id="dialogConfirm">OK</button>
+          <button id="dialogCancel">Cancel</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Custom JavaScript -->
+    <script src="scripts/main.js"></script>
+  </body>
+</html>

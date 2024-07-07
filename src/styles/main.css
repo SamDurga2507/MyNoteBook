@@ -1,0 +1,433 @@
+/* Color Variables */
+:root {
+  --primary-color: #34495e;
+  --secondary-color: #f1f8e9;
+  --accent-color-1: #4caf50;
+  --accent-color-2: #ff7043;
+  --accent-color-3: #29b6f6;
+  --accent-color-4: #9c27b0;
+  --text-color: #333;
+  --dark-bg-color: #1a1a1a;
+  --dark-text-color: #f0f0f0;
+  --dark-primary-color: #4a90e2;
+}
+
+/* General Styles */
+body {
+  font-family: "Poppins", "Roboto", "Segoe UI", "Tahoma", Verdana, Geneva, sans-serif;
+  background-color: var(--secondary-color);
+  color: var(--text-color);
+  line-height: 1.6;
+  margin: 0;
+  padding: 20px;
+}
+
+/* Container for Notepad */
+.notepad-container {
+  max-width: 800px;
+  margin: 0 auto;
+  width: 100%;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+}
+
+/* Header Styles */
+h1 {
+  color: var(--primary-color);
+  text-align: center;
+  margin-bottom: 20px;
+  font-weight: 400;
+  font-size: 3em;
+}
+
+/* Topic Tag Styles */
+.topic-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.topic-tag {
+  color: #fff;
+  padding: 10px 15px;
+  border-radius: 20px;
+  font-size: 0.9em;
+  cursor: pointer;
+  transition: transform 0.3s, box-shadow 0.3s;
+  border: none;
+}
+
+.topic-tag:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.topic-tag:focus {
+  outline: 2px solid #fff;
+  outline-offset: 2px;
+}
+
+/* Specific Tag Colors */
+.tag-general {
+  background-color: var(--accent-color-1);
+}
+
+.tag-important {
+  background-color: var(--accent-color-2);
+}
+
+.tag-question {
+  background-color: var(--accent-color-3);
+}
+
+.tag-review {
+  background-color: var(--accent-color-4);
+}
+
+/* Note Input Styles */
+.note-input {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+}
+
+#note-text {
+  padding: 10px;
+  border: 2px solid var(--accent-color-1);
+  border-radius: 5px;
+  font-size: 1.2em;
+  resize: vertical;
+  min-width: 100px;
+}
+
+/* Note Actions Styles */
+.note-actions {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+
+#add-note,
+#clear-note {
+  background-color: var(--accent-color-1);
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+#add-note:hover {
+  background-color: #43a047;
+}
+
+#clear-note {
+  background-color: #e57373;
+}
+
+#clear-note:hover {
+  background-color: #ef5350;
+}
+
+/* Notes Container Styles */
+.notes-container {
+  background-color: #f9f9f9;
+  border-radius: 5px;
+  padding: 20px;
+  max-height: 400px;
+  overflow-y: auto;
+}
+
+.note-item {
+  background-color: #fff;
+  border-left: 4px solid;
+  padding: 10px;
+  margin-bottom: 15px;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s;
+}
+
+.note-item:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+/* Note Item Specific Colors */
+.note-item.general {
+  border-left-color: var(--accent-color-1);
+}
+
+.note-item.important {
+  border-left-color: var(--accent-color-2);
+}
+
+.note-item.question {
+  border-left-color: var(--accent-color-3);
+}
+
+.note-item.review {
+  border-left-color: var(--accent-color-4);
+}
+
+.note-timestamp {
+  font-size: 0.8em;
+  color: #777;
+  margin-bottom: 5px;
+}
+
+.note-content {
+  font-size: 1em;
+}
+
+.note-tags {
+  margin-top: 5px;
+}
+
+.note-tag {
+  font-size: 0.8em;
+  padding: 5px 10px;
+  border-radius: 10px;
+  color: #fff;
+  margin-right: 5px;
+}
+
+/* Productivity Tip Styles */
+.productivity-tip {
+  background-color: #e8f5e9;
+  border: 1px solid var(--accent-color-1);
+  border-radius: 5px;
+  padding: 10px;
+  margin-top: 20px;
+  font-style: italic;
+}
+
+/* Search Bar Styles */
+.search-bar {
+  margin-bottom: 20px;
+}
+
+#search-input {
+  width: 97%;
+  min-width: 100px;
+  padding: 10px;
+  border: 2px solid var(--accent-color-3);
+  border-radius: 5px;
+  font-size: 1em;
+}
+
+/* Stats Container Styles */
+.stats-container {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 20px;
+  background-color: #e8f5e9;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.stat-item {
+  text-align: center;
+}
+
+.state-value {
+  font-size: 1.5em;
+  font-weight: bold;
+  color: var(--accent-color-1);
+}
+
+/* Dark Mode Toggle Styles */
+.dark-mode-toggle {
+  position: absolute;
+  top: 25px;
+  right: 25px;
+  background-color: var(--primary-color);
+  color: #fff;
+  border: none;
+  padding: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.3s;
+}
+
+.dark-mode-toggle:hover {
+  transform: scale(1.1);
+}
+
+.dark-mode-toggle i {
+  font-size: 1.2em;
+}
+
+/* Dark Mode Styles */
+body.dark-mode {
+  background-color: var(--dark-bg-color);
+  color: var(--dark-text-color);
+}
+
+body.dark-mode .notepad-container,
+body.dark-mode .notes-container,
+body.dark-mode .productivity-tip,
+body.dark-mode .stats-container,
+body.dark-mode .modal-content {
+  background-color: #2a2a2a;
+  color: var(--dark-text-color);
+}
+
+body.dark-mode .notepad-container {
+  background-color: #2a2a2a;
+}
+
+body.dark-mode .note-item {
+  background-color: #3a3a3a;
+}
+
+body.dark-mode .productivity-tip {
+  border-color: var(--dark-primary-color);
+}
+
+body.dark-mode h1 {
+  color: var(--dark-primary-color);
+}
+
+body.dark-mode .action-btn:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+body.dark-mode .editable-content {
+  background-color: #3a3a3a;
+  color: var(--dark-text-color);
+  border-color: #555;
+}
+
+/* Note Header Styles */
+.note-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 5px;
+}
+
+.note-actions {
+  display: flex;
+  gap: 5px;
+}
+
+.action-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 5px;
+  border-radius: 50%;
+  transition: background-color 0.3s;
+}
+
+.action-btn:hover {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+.copy-btn {
+  color: var(--accent-color-3);
+}
+
+.delete-btn {
+  color: var(--accent-color-2);
+}
+
+.edit-btn {
+  color: var(--accent-color-1);
+}
+
+/* Modal Styles */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modal-content {
+  position: relative;
+  background-color: #fefefe;
+  margin: 15% auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 500px;
+  border-radius: 20px;
+}
+
+/* Tag Options Styles */
+.tag-options {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 20px;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+/* Editable Content Styles */
+.editable-content {
+  border: 1px solid black;
+  min-height: 20px;
+  border-radius: 3px;
+  padding: 5px;
+  outline: none;
+}
+
+/* Custom Dialog Styles */
+.custom-dialog {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.dialog-content {
+  background-color: #fefefe;
+  margin: 15% auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 300px;
+  border-radius: 5px;
+  text-align: center;
+}
+
+.dialog-buttons {
+  margin-top: 20px;
+}
+
+.dialog-buttons button {
+  margin: 0 10px;
+  padding: 5px 15px;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+#dialogConfirm {
+  background-color: var(--accent-color-1);
+  color: white;
+}
+
+#dialogCancel {
+  background-color: #ccc;
+}
+
+body.dark-mode #dialogCancel {
+  background-color: #555;
+  color: var(--dark-text-color);
+}
