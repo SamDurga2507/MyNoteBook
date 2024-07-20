@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Advanced Video Notes Organizer</title>
+    <title>Video Notes Organizer</title>
     <!-- Font Awesome CSS -->
     <link
       rel="stylesheet"
@@ -14,19 +14,39 @@
       href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap"
       rel="stylesheet"
     />
+
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="styles/main.css" />
+    <link rel="stylesheet" href="{{url_for('static',filename='main.css')}}" />
   </head>
   <body>
-    <!-- Dark Mode Toggle Button -->
-    <button class="dark-mode-toggle" id="darkModeToggle">
-      <i class="fas fa-moon"></i>
-      Toggle Dark Mode
-    </button>
+    <div class="header">
+      <!-- Title with edit icon -->
+      <div class="title-wrapper">
+        <h1
+          id="main-title"
+          data-title-id="{{ title_id }}"
+          data-is-new="{{is_new}}"
+        >
+          {{ title.title }}
+        </h1>
+        <button class="edit-title-icon" id="editTitleIcon">
+          <i class="fas fa-pencil-alt"></i>
+        </button>
+
+        <!-- Dark Mode Toggle Button -->
+        <button class="dark-mode-toggle" id="darkModeToggle">
+          <i class="fas fa-moon"></i>
+        </button>
+      </div>
+
+      <!-- Save Notes Icon -->
+      <button class="save-notes-icon" id="saveNotesIcon">
+        <i class="fas fa-save"></i>
+      </button>
+      <a href="/dashboard" class="dashboard-link">Dashboard</a>
+    </div>
 
     <div class="notepad-container">
-      <h1>Advanced Video Notes Organizer</h1>
-
       <!-- Topic Tags -->
       <div class="topic-list">
         <button class="topic-tag tag-general">General</button>
@@ -56,9 +76,17 @@
         </div>
       </div>
 
+      {% if is_new %}
+      <p>Welcome to your new notebook! Start adding notes below.</p>
+      {% endif %}
+
       <!-- Notes Container -->
       <div class="notes-container">
-        <!-- Notes will be dynamically added here -->
+        {% if notes %}
+        <!-- Your existing code for displaying notes -->
+        {% else %}
+        <p>No notes yet. Add your first note above!</p>
+        {% endif %}
       </div>
 
       <!-- Statistics -->
@@ -116,13 +144,20 @@
       <div class="dialog-content">
         <p id="dialogMessage"></p>
         <div class="dialog-buttons">
-          <button id="dialogConfirm">OK</button>
           <button id="dialogCancel">Cancel</button>
+          <button id="dialogConfirm">OK</button>
         </div>
       </div>
     </div>
 
+    <!-- Feedback Popup -->
+    <div id="feedback-popup" class="feedback-popup">
+      <div class="feedback-content">
+        <p id="feedback-message"></p>
+      </div>
+    </div>
+
     <!-- Custom JavaScript -->
-    <script src="scripts/main.js"></script>
+    <script src="{{url_for('scripts',filename='main.js')}}"></script>
   </body>
 </html>

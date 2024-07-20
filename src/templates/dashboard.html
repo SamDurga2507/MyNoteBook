@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Notes Dashboard</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='dashboard.css') }}"
+    />
+  </head>
+  <body>
+    <div class="dashboard-container">
+      <h1>Notes Dashboard</h1>
+      <div class="create-new-notebook">
+        <button id="createNewNotebook">Create New Notebook</button>
+      </div>
+      <div class="filter-section">
+        <select id="sortFilter">
+          <option value="recent">Most Recent</option>
+          <option value="oldest">Oldest</option>
+          <option value="alphabetical">Alphabetical</option>
+        </select>
+        <input type="text" id="searchInput" placeholder="Search notebooks..." />
+      </div>
+      <div id="collections-container" class="notes-list">
+        <!-- Notebooks will be dynamically added here -->
+      </div>
+    </div>
+    <script src="{{ url_for('scripts', filename='dashboard.js') }}"></script>
+  </body>
+</html>
