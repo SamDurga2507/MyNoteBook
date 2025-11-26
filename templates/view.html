@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{{ note.title }}</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: Arial, sans-serif; background: #f4f4f4; padding: 20px; }
+        .container { max-width: 800px; margin: 0 auto; background: white; padding: 30px; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+        h1 { color: #333; margin-bottom: 10px; }
+        .meta { color: #666; font-size: 14px; margin-bottom: 20px; }
+        .content { background: #f9f9f9; padding: 20px; border-radius: 4px; white-space: pre-wrap; font-family: monospace; line-height: 1.6; }
+        .actions { margin-top: 20px; }
+        .btn { padding: 10px 20px; background: #007bff; color: white; text-decoration: none; border-radius: 4px; margin-right: 10px; display: inline-block; }
+        .btn:hover { background: #0056b3; }
+        .btn-secondary { background: #6c757d; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>{{ note.title }}</h1>
+        <div class="meta">
+            Created: {{ note.created_at.strftime('%Y-%m-%d %H:%M') }} |
+            Updated: {{ note.updated_at.strftime('%Y-%m-%d %H:%M') }}
+        </div>
+        <div class="content">{{ note.content }}</div>
+        <div class="actions">
+            <a href="/" class="btn btn-secondary">← Back</a>
+            <a href="/note/{{ note.id }}/edit" class="btn">Edit</a>
+        </div>
+    </div>
+</body>
+</html>

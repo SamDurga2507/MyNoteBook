@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Notepad App</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: Arial, sans-serif; background: #f4f4f4; padding: 20px; }
+        .container { max-width: 800px; margin: 0 auto; background: white; padding: 30px; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+        h1 { color: #333; margin-bottom: 20px; }
+        .btn { padding: 10px 20px; background: #007bff; color: white; text-decoration: none; border-radius: 4px; border: none; cursor: pointer; display: inline-block; }
+        .btn:hover { background: #0056b3; }
+        .note-list { margin-top: 30px; }
+        .note-item { background: #f9f9f9; padding: 15px; margin-bottom: 15px; border-radius: 4px; border-left: 4px solid #007bff; }
+        .note-item h3 { color: #333; margin-bottom: 8px; }
+        .note-item .meta { color: #666; font-size: 12px; margin-bottom: 10px; }
+        .note-item .actions a { margin-right: 10px; color: #007bff; text-decoration: none; font-size: 14px; }
+        .note-item .actions form { display: inline; }
+        .note-item .actions button { background: none; border: none; color: #dc3545; cursor: pointer; font-size: 14px; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>📝 My Notepad</h1>
+        <a href="/note/new" class="btn">+ New Note</a>
+        
+        <div class="note-list">
+            {% if notes %}
+                {% for note in notes %}
+                <div class="note-item">
+                    <h3>{{ note.title }}</h3>
+                    <div class="meta">Last updated: {{ note.updated_at.strftime('%Y-%m-%d %H:%M') }}</div>
+                    <div class="actions">
+                        <a href="/note/{{ note.id }}">View</a>
+                        <a href="/note/{{ note.id }}/edit">Edit</a>
+                        <form method="post" action="/note/{{ note.id }}/delete" onsubmit="return confirm('Delete this note?');">
+                            <button type="submit">Delete</button>
+                        </form>
+                    </div>
+                </div>
+                {% endfor %}
+            {% else %}
+                <p style="color: #666; margin-top: 20px;">No notes yet. Create your first note!</p>
+            {% endif %}
+        </div>
+    </div>
+</body>
+</html>
